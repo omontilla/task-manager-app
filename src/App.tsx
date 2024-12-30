@@ -1,7 +1,6 @@
 import {Refine} from "@refinedev/core";
 import {
     ErrorComponent,
-    ThemedLayoutV2,
     RefineThemes,
     useNotificationProvider,
 } from "@refinedev/chakra-ui";
@@ -12,14 +11,14 @@ import routerProvider, {
     UnsavedChangesNotifier,
     DocumentTitleHandler,
 } from "@refinedev/react-router";
-import {BrowserRouter, Routes, Route, Outlet} from "react-router";
+import {BrowserRouter, Routes, Route} from "react-router";
 
 import {TaskList, TaskCreate, TaskEdit, TaskShow} from "./pages";
 import {I18nextProvider} from "react-i18next";
 import i18n from "i18next";
 
-const API_URL = "https://task-manager-core-production.up.railway.app";
-//const API_URL = "http://localhost:3000"
+//const API_URL = "https://task-manager-core-production.up.railway.app";
+const API_URL = "http://localhost:3000/api"
 
 const App: React.FC = () => {
     return (
@@ -32,11 +31,11 @@ const App: React.FC = () => {
                         notificationProvider={useNotificationProvider}
                         resources={[
                             {
-                                name: "task",
-                                list: "/task",
-                                create: "/task/create",
-                                edit: "/task/:id",
-                                show: "/task/show/:id",
+                                name: "tasks",
+                                list: "/tasks",
+                                create: "/tasks/create",
+                                edit: "/tasks/:id",
+                                show: "/tasks/show/:id",
                                 meta: {
                                     canDelete: true,
                                 },
@@ -51,7 +50,7 @@ const App: React.FC = () => {
                             <Route>
                                 <Route index element={<NavigateToResource resource="task"/>}/>
 
-                                <Route path="/task">
+                                <Route path="/tasks">
                                     <Route index element={<TaskList/>}/>
                                     <Route path="create" element={<TaskCreate/>}/>
                                     <Route path=":id" element={<TaskEdit/>}/>

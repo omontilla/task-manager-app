@@ -33,7 +33,9 @@ export const TaskList: React.FC = () => {
         id: "title",
         header: "Titulo",
         accessorKey: "title",
-        enableColumnFilter: false,
+        meta: {
+          filterOperator: "contains",
+        },
       },
       {
         id: "description",
@@ -79,7 +81,7 @@ export const TaskList: React.FC = () => {
       },
       {
         id: "Opciones",
-        header: "Actions",
+        header: "Acciones",
         accessorKey: "id",
         enableColumnFilter: false,
         enableSorting: false,

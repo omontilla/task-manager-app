@@ -11,7 +11,6 @@ export const TaskShow: React.FC = () => {
     const record = data?.data;
 
     const getStatus = (completed: string | undefined) => {
-        console.log(completed);
         if (completed) return "Culminado";
         if (!completed) return "En proceso";
         return "Sin estatus";
