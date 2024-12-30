@@ -12,14 +12,13 @@ import routerProvider, {
     UnsavedChangesNotifier,
     DocumentTitleHandler,
 } from "@refinedev/react-router";
-import {BrowserRouter, Routes, Route, Outlet} from "react-router";
+import {BrowserRouter, Routes, Route, Outlet, useNavigate, Navigate} from "react-router";
 
 import {TaskList, TaskCreate, TaskEdit, TaskShow} from "./pages";
 import {I18nextProvider} from "react-i18next";
 import i18n from "i18next";
 
-console.log(process.env.REACT_APP_API_URL);
-const API_URL = process.env.REACT_APP_API_URL
+const API_URL = "https://task-manager-core-production.up.railway.app"
 
 const App: React.FC = () => {
     return (
@@ -48,6 +47,7 @@ const App: React.FC = () => {
                         }}
                     >
                         <Routes>
+                            <Route path="/" element={<Navigate to="task" />} />
                             <Route>
                                 <Route index element={<NavigateToResource resource="task"/>}/>
 
