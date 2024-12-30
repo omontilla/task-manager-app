@@ -47,19 +47,16 @@ const App: React.FC = () => {
                         }}
                     >
                         <Routes>
-                            <Route path="/" element={<Navigate to="task" />} />
-                            <Route>
-                                <Route index element={<NavigateToResource resource="task"/>}/>
+                            <Route path="/" element={<Navigate to="/task" />} />
 
-                                <Route path="/task">
-                                    <Route index element={<TaskList/>}/>
-                                    <Route path="create" element={<TaskCreate/>}/>
-                                    <Route path=":id" element={<TaskEdit/>}/>
-                                    <Route path="show/:id" element={<TaskShow/>}/>
-                                </Route>
-
-                                <Route path="*" element={<ErrorComponent/>}/>
+                            <Route path="/task" element={<Outlet />}>
+                                <Route index element={<TaskList />} />
+                                <Route path="create" element={<TaskCreate />} />
+                                <Route path=":id" element={<TaskEdit />} />
+                                <Route path="show/:id" element={<TaskShow />} />
                             </Route>
+
+                            <Route path="*" element={<ErrorComponent />} />
                         </Routes>
                         <UnsavedChangesNotifier/>
                         <DocumentTitleHandler/>
