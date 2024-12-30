@@ -17,8 +17,8 @@ import {TaskList, TaskCreate, TaskEdit, TaskShow} from "./pages";
 import {I18nextProvider} from "react-i18next";
 import i18n from "i18next";
 
-const API_URL = "https://task-manager-core-production.up.railway.app/api";
-//const API_URL = "http://localhost:3000/api"
+const API_URL = "https://task-manager-core-production.up.railway.app";
+//const API_URL = "http://localhost:3000"
 
 const App: React.FC = () => {
     return (
@@ -31,7 +31,7 @@ const App: React.FC = () => {
                         notificationProvider={useNotificationProvider}
                         resources={[
                             {
-                                name: "tasks",
+                                name: "api/tasks",
                                 list: "/tasks",
                                 create: "/tasks/create",
                                 edit: "/tasks/:id",
