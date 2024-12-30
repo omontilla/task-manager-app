@@ -18,7 +18,7 @@ import {TaskList, TaskCreate, TaskEdit, TaskShow} from "./pages";
 import {I18nextProvider} from "react-i18next";
 import i18n from "i18next";
 
-const API_URL = "https://task-manager-core-production.up.railway.app/";
+const API_URL = "https://task-manager-core-production.up.railway.app";
 //const API_URL = "http://localhost:3000"
 
 const App: React.FC = () => {
