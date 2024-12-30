@@ -1,6 +1,7 @@
 import {Refine} from "@refinedev/core";
 import {
     ErrorComponent,
+    ThemedLayoutV2,
     RefineThemes,
     useNotificationProvider,
 } from "@refinedev/chakra-ui";
@@ -11,7 +12,7 @@ import routerProvider, {
     UnsavedChangesNotifier,
     DocumentTitleHandler,
 } from "@refinedev/react-router";
-import {BrowserRouter, Routes, Route} from "react-router";
+import {BrowserRouter, Routes, Route, Outlet} from "react-router";
 
 import {TaskList, TaskCreate, TaskEdit, TaskShow} from "./pages";
 import {I18nextProvider} from "react-i18next";
@@ -32,10 +33,10 @@ const App: React.FC = () => {
                         resources={[
                             {
                                 name: "api/tasks",
-                                list: "/tasks",
-                                create: "/tasks/create",
-                                edit: "/tasks/:id",
-                                show: "/tasks/show/:id",
+                                list: "/task",
+                                create: "/task/create",
+                                edit: "/task/:id",
+                                show: "/task/show/:id",
                                 meta: {
                                     canDelete: true,
                                 },
@@ -50,7 +51,7 @@ const App: React.FC = () => {
                             <Route>
                                 <Route index element={<NavigateToResource resource="task"/>}/>
 
-                                <Route path="/tasks">
+                                <Route path="/task">
                                     <Route index element={<TaskList/>}/>
                                     <Route path="create" element={<TaskCreate/>}/>
                                     <Route path=":id" element={<TaskEdit/>}/>
