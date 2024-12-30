@@ -74,8 +74,7 @@ export const TaskList: React.FC = () => {
         id: "createdAt",
         header: "Fecha de creación",
         accessorKey: "createdAt",
-        cell: function render({ getValue }) {
-          return <DateField value={getValue() as string} format="LLL" />;
+        cell: function render({ getValue }) {          return <DateField value={getValue() as string} format="LLL" />;
         },
         enableColumnFilter: false,
       },
