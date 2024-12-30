@@ -32,7 +32,7 @@ const App: React.FC = () => {
                         notificationProvider={useNotificationProvider}
                         resources={[
                             {
-                                name: "task",
+                                name: "api/tasks",
                                 list: "/task",
                                 create: "/task/create",
                                 edit: "/task/:id",
